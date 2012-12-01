@@ -15,7 +15,10 @@ GarmentsAddedHandler* GarmentsAddedHandler::clone() const
 
 void GarmentsAddedHandler::execute(Simulator::State& state)
 {
-  state.pretreatmentQueue += Simulator::randomNormalInt((double)state.garmentMean, (double)state.garmentDev, 1, 100);
+  state.pretreatmentQueue += Simulator::randomNormalInt((double)state.arrivalMean, (double)state.arrivalDev, 1, 100);
+  
+  Event garmentsAdded(Event::Type::GARMENTS_ADDED, state.currentTime + Simulator::randomNormalInt((double)state.garmentMean, (double)state.garmentDev, 1, (unsigned int)pow(2,31)), new GarmentsAddedHandler);
+  state.schedule.enqueue(garmentsAdded);
     
   Event employeeRequested(Event::Type::EMPLOYEE_REQUESTED, state.currentTime, new EmployeeRequestedHandler);
   state.schedule.enqueue(employeeRequested);
@@ -59,15 +62,6 @@ void EmployeeRequestedHandler::execute(Simulator::State& state)
 
   unsigned int smallest;
   
-  cout << "freeEmployeeNum " << state.freeEmployeeNum << endl;
-  cout << "scheduledEmployeeNum " << state.scheduledEmployeeNum << endl << endl;
-  
-  cout << "finishingQueue " << state.finishingQueue << endl;
-  cout << "scheduledFinishing " << state.scheduledFinishing << endl;
-  cout << "freeFinishingStationNum " << state.freeFinishingStationNum << endl;
-  cout << "scheduledFinishingStationNum " << state.scheduledFinishingStationNum << endl;
-  cout << endl;
-  
   if (state.finishingQueue-state.scheduledFinishing > 0 
       && state.freeEmployeeNum-state.scheduledEmployeeNum > 0 
       && state.freeFinishingStationNum-state.scheduledFinishingStationNum > 0)
@@ -90,15 +84,6 @@ void EmployeeRequestedHandler::execute(Simulator::State& state)
     state.scheduledFinishingStationNum += smallest;
   }
   
-  cout << "freeEmployeeNum " << state.freeEmployeeNum << endl;
-  cout << "scheduledEmployeeNum " << state.scheduledEmployeeNum << endl << endl;
-  
-  cout << "cleaningQueue " << state.cleaningQueue << endl;
-  cout << "scheduledCleaning " << state.scheduledCleaning << endl;
-  cout << "freeCleaningStationNum " << state.freeCleaningStationNum << endl;
-  cout << "scheduledCleaningStationNum " << state.scheduledCleaningStationNum << endl;
-  cout << endl;
-  
   if (state.cleaningQueue-state.scheduledCleaning > 0 
       && state.freeEmployeeNum-state.scheduledEmployeeNum > 0 
       && state.freeCleaningStationNum-state.scheduledCleaningStationNum > 0 
@@ -107,7 +92,6 @@ void EmployeeRequestedHandler::execute(Simulator::State& state)
   {
     smallest = min(state.freeCleaningStationNum-state.scheduledCleaningStationNum, 
     (unsigned int)((state.cleaningQueue-state.scheduledCleaning)/state.cleaningMaxLoad <= 0 ? 1 : (state.cleaningQueue-state.scheduledCleaning)/state.cleaningMaxLoad));
-    cout << smallest << endl;
     
     Event employeeFree(Event::Type::EMPLOYEE_FREE, state.currentTime, new EmployeeFreeHandler);
     state.schedule.enqueue(employeeFree);
@@ -125,15 +109,6 @@ void EmployeeRequestedHandler::execute(Simulator::State& state)
     state.scheduledCleaning += (smallest > 1 ? smallest*state.cleaningMaxLoad : (state.cleaningQueue-state.scheduledCleaning < state.cleaningMaxLoad ? state.cleaningQueue-state.scheduledCleaning : state.cleaningMaxLoad));
     state.scheduledCleaningStationNum += smallest;
   }
-  
-  cout << "freeEmployeeNum " << state.freeEmployeeNum << endl;
-  cout << "scheduledEmployeeNum " << state.scheduledEmployeeNum << endl << endl;
-  
-  cout << "pretreatmentQueue " << state.pretreatmentQueue << endl;
-  cout << "scheduledPretreatment " << state.scheduledPretreatment << endl;
-  cout << "freePretreatmentStationNum " << state.freePretreatmentStationNum << endl;
-  cout << "scheduledPretreatmentStationNum " << state.scheduledPretreatmentStationNum << endl;
-  cout << endl;
   
   if (state.pretreatmentQueue-state.scheduledPretreatment > 0 
       && state.freeEmployeeNum-state.scheduledEmployeeNum > 0 
@@ -157,9 +132,6 @@ void EmployeeRequestedHandler::execute(Simulator::State& state)
     state.scheduledPretreatmentStationNum += smallest;
   }
   
-  cout << "freeEmployeeNum " << state.freeEmployeeNum << endl;
-  cout << "scheduledEmployeeNum " << state.scheduledEmployeeNum << endl << endl;
-  
 }
 
 //EMPLOYEE_BUSY    
@@ -172,8 +144,6 @@ void EmployeeBusyHandler::execute(Simulator::State& state)
 {
   state.freeEmployeeNum--;
   state.scheduledEmployeeNum--;
-  cout << "freeEmployeeNum " << state.freeEmployeeNum << endl;
-  cout << "scheduledEmployeeNum " << state.scheduledEmployeeNum << endl;
 }
 
 
@@ -186,10 +156,7 @@ EmployeeFreeHandler* EmployeeFreeHandler::clone() const
 void EmployeeFreeHandler::execute(Simulator::State& state)
 {
   state.freeEmployeeNum++;
-  
-  cout << "freeEmployeeNum " << state.freeEmployeeNum << endl;
-  cout << "scheduledEmployeeNum " << state.scheduledEmployeeNum << endl;
-  
+
   //abusive boss doesn't let the employees have a break
   Event employeeRequested(Event::Type::EMPLOYEE_REQUESTED, state.currentTime, new EmployeeRequestedHandler);
   state.schedule.enqueue(employeeRequested);
@@ -265,6 +232,7 @@ CleaningEndHandler* CleaningEndHandler::clone() const
 void CleaningEndHandler::execute(Simulator::State& state)
 {
   state.freeCleaningStationNum++;
+  state.completedLoadNum++;
   
   Event employeeRequested(Event::Type::EMPLOYEE_REQUESTED, state.currentTime, new EmployeeRequestedHandler);
   state.schedule.enqueue(employeeRequested);

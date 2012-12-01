@@ -14,62 +14,43 @@ int main()
   Simulator::State state;
   Simulator::resetState(state);
   
-  state.pretreatmentQueue = 7;
-  state.freeEmployeeNum = 3;
-  state.freePretreatmentStationNum = 3;
-  state.freeCleaningStationNum = 2;
-  state.freeFinishingStationNum = 4;
+  unsigned int simulationDuration; //in hours;
+  cin >> simulationDuration;
+  state.endTime = 0 + simulationDuration * 3600; //input is in hours while the default is seconds
+  state.currentTime = 0;
   
-  state.pretreatmentMean = 5;
-  state.pretreatmentDev = 0;
-  state.cleaningDuration = 10;
-  state.cleaningMaxLoad = 3;
-  state.finishingMean = 3;
-  state.finishingDev = 0;
+  cin >> state.freeEmployeeNum;
+  cin >> state.freePretreatmentStationNum;
+  cin >> state.freeCleaningStationNum;
+  cin >> state.freeFinishingStationNum;
+  cin >> state.pretreatmentMean >> state.pretreatmentDev;
+  cin >> state.cleaningDuration >> state.cleaningMaxLoad;
+  cin >> state.finishingMean >> state.finishingDev;
+  cin >> state.arrivalMean >> state.arrivalDev;
+  cin >> state.garmentMean >> state.garmentDev;
   
-  state.garmentMean = 4;
-  state.garmentDev = 1;
+  Event garmentsAdded(Event::Type::GARMENTS_ADDED, state.currentTime, new GarmentsAddedHandler);
+  state.schedule.enqueue(garmentsAdded);
   
-  Event employeeRequested(Event::Type::EMPLOYEE_REQUESTED, 0, new EmployeeRequestedHandler);
-  state.schedule.enqueue(employeeRequested);
-  
-  unsigned int times = 0;
-  while( state.schedule.size() > 0)
+  while(state.schedule.size() > 0 && state.currentTime <= state.endTime)
   { 
-    cout << "loop " << times << endl;
     Event event = *(state.schedule.getLowest());
-    state.schedule.dequeueLowest();
     state.currentTime = event.getTime();
-    cout << "Current time: " << state.currentTime << endl;
-    cout << event << endl;
-    if (times == 50)
+    if (state.currentTime <= state.endTime)
     {
-      Event garmentsAdded(Event::Type::GARMENTS_ADDED, state.currentTime, new GarmentsAddedHandler);
-      state.schedule.enqueue(garmentsAdded);
+      cout << event << endl;
+      state.schedule.dequeueLowest();
+      event.getEventHandler().execute(state);
     }
-    event.getEventHandler().execute(state);
-    cout << endl;
-    times++;
   }
   
-  cout << "Schedule" << endl;
-  cout << state.scheduledPretreatment << endl;
-  cout << state.scheduledCleaning << endl;
-  cout << state.scheduledFinishing << endl;
-  cout << state.scheduledEmployeeNum << endl;
-  cout << state.scheduledPretreatmentStationNum << endl;
-  cout << state.scheduledCleaningStationNum << endl;
-  cout << state.scheduledFinishingStationNum << endl;
-  cout << "Queue" << endl;
-  cout << state.pretreatmentQueue << endl;
-  cout << state.cleaningQueue << endl;
-  cout << state.finishingQueue << endl;
-  cout << state.completeQueue << endl;
-  cout << "Num" << endl;
-  cout << state.freeEmployeeNum << endl;
-  cout << state.freePretreatmentStationNum << endl;
-  cout << state.freeCleaningStationNum << endl;
-  cout << state.freeFinishingStationNum << endl;
+  cout << endl;
+  cout << "---------------------------------------------------------------------------------------------------" << endl;
+  cout << "Statistics:" << endl;
+  cout << "Completely processed: " << state.completeQueue << endl;
+  cout << "Being processed: " << state.pretreatmentQueue + state.cleaningQueue + state.finishingQueue << endl;
+  cout << "Complete batches: " << state.completedLoadNum << endl;
+  cout << "Idle time percentage: " << "Forgot about this part until it is too late to add to the program... :(" << endl;
 
   return 0;
 }

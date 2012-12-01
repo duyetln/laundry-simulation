@@ -19,7 +19,7 @@ class Simulator
     
     struct State
     {
-      unsigned int duration; //in seconds
+      unsigned int endTime; //in seconds
       unsigned int currentTime; //in seconds; assuming time starts at 0
       
       unsigned int pretreatmentQueue; //the number of garments waiting to go through the pretreatment stage
@@ -61,6 +61,9 @@ class Simulator
       
       std::vector<CleaningLoad> loads; //merely to keep tract of which one is running
       PriorityQueue<Event> schedule;
+      
+      //other stuffs
+      unsigned int completedLoadNum;
     };
     
     static void resetState(State& state);

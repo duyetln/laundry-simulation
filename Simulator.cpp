@@ -9,7 +9,7 @@ using namespace std;
 
 void Simulator::resetState(State& state)
 {
-  state.duration = 0;
+  state.endTime = 0;
   state.currentTime = 0;
       
   state.pretreatmentQueue = 0;
@@ -46,6 +46,8 @@ void Simulator::resetState(State& state)
       
   state.loads.clear();    
   state.schedule.emptyQueue();
+  
+  state.completedLoadNum = 0;
 }
 
 unsigned int Simulator::randomNormalInt(double mean, double stddev, unsigned int min, unsigned int max)
