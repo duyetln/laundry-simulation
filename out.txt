@@ -1,0 +1,552 @@
+loop 0
+Current time: 0
+Event: EMPLOYEE_REQUESTED at 0
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+cleaningQueue 0
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+pretreatmentQueue 5
+scheduledPretreatment 0
+freePretreatmentStationNum 3
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 3
+
+
+loop 1
+Current time: 0
+Event: EMPLOYEE_BUSY at 0
+freeEmployeeNum 2
+scheduledEmployeeNum 2
+
+loop 2
+Current time: 0
+Event: PRETREATMENT_START at 0
+
+loop 3
+Current time: 0
+Event: EMPLOYEE_BUSY at 0
+freeEmployeeNum 1
+scheduledEmployeeNum 1
+
+loop 4
+Current time: 0
+Event: PRETREATMENT_START at 0
+
+loop 5
+Current time: 0
+Event: EMPLOYEE_BUSY at 0
+freeEmployeeNum 0
+scheduledEmployeeNum 0
+
+loop 6
+Current time: 0
+Event: PRETREATMENT_START at 0
+
+loop 7
+Current time: 5
+Event: PRETREATMENT_END at 5
+
+loop 8
+Current time: 5
+Event: EMPLOYEE_FREE at 5
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+loop 9
+Current time: 5
+Event: EMPLOYEE_REQUESTED at 5
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+cleaningQueue 1
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+pretreatmentQueue 2
+scheduledPretreatment 0
+freePretreatmentStationNum 1
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 1
+
+
+loop 10
+Current time: 5
+Event: EMPLOYEE_BUSY at 5
+freeEmployeeNum 0
+scheduledEmployeeNum 0
+
+loop 11
+Current time: 5
+Event: PRETREATMENT_START at 5
+
+loop 12
+Current time: 5
+Event: PRETREATMENT_END at 5
+
+loop 13
+Current time: 5
+Event: EMPLOYEE_FREE at 5
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+loop 14
+Current time: 5
+Event: EMPLOYEE_REQUESTED at 5
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+cleaningQueue 2
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+pretreatmentQueue 1
+scheduledPretreatment 0
+freePretreatmentStationNum 1
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 1
+
+
+loop 15
+Current time: 5
+Event: EMPLOYEE_BUSY at 5
+freeEmployeeNum 0
+scheduledEmployeeNum 0
+
+loop 16
+Current time: 5
+Event: PRETREATMENT_START at 5
+
+loop 17
+Current time: 5
+Event: PRETREATMENT_END at 5
+
+loop 18
+Current time: 5
+Event: EMPLOYEE_FREE at 5
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+loop 19
+Current time: 5
+Event: EMPLOYEE_REQUESTED at 5
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+cleaningQueue 3
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 1
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+
+loop 20
+Current time: 10
+Event: PRETREATMENT_END at 10
+
+loop 21
+Current time: 10
+Event: EMPLOYEE_FREE at 10
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+loop 22
+Current time: 10
+Event: EMPLOYEE_REQUESTED at 10
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+cleaningQueue 4
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+1
+freeEmployeeNum 2
+scheduledEmployeeNum 1
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 2
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 1
+
+
+loop 23
+Current time: 10
+Event: EMPLOYEE_BUSY at 10
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+loop 24
+Current time: 10
+Event: CLEANING_START at 10
+
+loop 25
+Current time: 10
+Event: EMPLOYEE_FREE at 10
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+loop 26
+Current time: 10
+Event: EMPLOYEE_REQUESTED at 10
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+cleaningQueue 1
+scheduledCleaning 0
+freeCleaningStationNum 1
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 2
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+
+loop 27
+Current time: 10
+Event: PRETREATMENT_END at 10
+
+loop 28
+Current time: 10
+Event: EMPLOYEE_FREE at 10
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+loop 29
+Current time: 10
+Event: EMPLOYEE_REQUESTED at 10
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+cleaningQueue 2
+scheduledCleaning 0
+freeCleaningStationNum 1
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 3
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+
+loop 30
+Current time: 20
+Event: CLEANING_END at 20
+
+loop 31
+Current time: 20
+Event: EMPLOYEE_REQUESTED at 20
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+finishingQueue 3
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 3
+
+cleaningQueue 2
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 3
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 3
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 3
+
+
+loop 32
+Current time: 20
+Event: EMPLOYEE_BUSY at 20
+freeEmployeeNum 2
+scheduledEmployeeNum 2
+
+loop 33
+Current time: 20
+Event: FINISHING_START at 20
+
+loop 34
+Current time: 20
+Event: EMPLOYEE_BUSY at 20
+freeEmployeeNum 1
+scheduledEmployeeNum 1
+
+loop 35
+Current time: 20
+Event: FINISHING_START at 20
+
+loop 36
+Current time: 20
+Event: EMPLOYEE_BUSY at 20
+freeEmployeeNum 0
+scheduledEmployeeNum 0
+
+loop 37
+Current time: 20
+Event: FINISHING_START at 20
+
+loop 38
+Current time: 23
+Event: FINISHING_END at 23
+
+loop 39
+Current time: 23
+Event: EMPLOYEE_FREE at 23
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+loop 40
+Current time: 23
+Event: EMPLOYEE_REQUESTED at 23
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 2
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+cleaningQueue 2
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 3
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 1
+scheduledEmployeeNum 0
+
+
+loop 41
+Current time: 23
+Event: GARMENTS_RETURNED at 23
+
+loop 42
+Current time: 23
+Event: FINISHING_END at 23
+
+loop 43
+Current time: 23
+Event: EMPLOYEE_FREE at 23
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+loop 44
+Current time: 23
+Event: EMPLOYEE_REQUESTED at 23
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 3
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+cleaningQueue 2
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 3
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 2
+scheduledEmployeeNum 0
+
+
+loop 45
+Current time: 23
+Event: GARMENTS_RETURNED at 23
+
+loop 46
+Current time: 23
+Event: FINISHING_END at 23
+
+loop 47
+Current time: 23
+Event: EMPLOYEE_FREE at 23
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+loop 48
+Current time: 23
+Event: EMPLOYEE_REQUESTED at 23
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+finishingQueue 0
+scheduledFinishing 0
+freeFinishingStationNum 4
+scheduledFinishingStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+cleaningQueue 2
+scheduledCleaning 0
+freeCleaningStationNum 2
+scheduledCleaningStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+pretreatmentQueue 0
+scheduledPretreatment 0
+freePretreatmentStationNum 3
+scheduledPretreatmentStationNum 0
+
+freeEmployeeNum 3
+scheduledEmployeeNum 0
+
+
+loop 49
+Current time: 23
+Event: GARMENTS_RETURNED at 23
+
+Schedule
+0
+0
+0
+0
+0
+0
+0
+Queue
+0
+2
+0
+3
+Num
+3
+3
+2
+4

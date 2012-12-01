@@ -1,0 +1,3 @@
+Types of Event:GARMENTS_ADDED (same as customer arrival), EMPLOYEE_BUSY, EMPLOYEE_FREE, PRETREAMENT_START, PRETREATMENT_END, CLEANING_START, CLEANING_END, FINISHING_START, FINISHING_END, GARMENTS_RETURNED
+EventHandler pure abstract class: for each type of Event, make a concrete class.
+Simulator class: includes global data, a random number generator, and a schedule queue. Global data includes statistics, incoming queue size, cleaning queue size, finishing queue size
